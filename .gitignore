@@ -1,0 +1,33 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# builds
+/dist
+/out
+/out-tsc
+/build
+/packages/*/dist
+*.tsbuildinfo
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# misc
+/tmp
+/.idea
+/.vscode
+.DS_Store
+*.swp
+*.swo
+*.cache
+/.turbo
+.eslintcache
+coverage
+/.env
+.env.*
