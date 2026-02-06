@@ -4,7 +4,7 @@ import * as fs from "node:fs";
 import * as os from "node:os";
 
     test("finds nearest tsconfig.json", () => {
-        const fixtureRoot = path.resolve("test/fixtures/basic");
+        const fixtureRoot = path.resolve("test/fixtures/discovery-basic");
         const testDiscoverProject = discoverProject(path.join(fixtureRoot, "src"));
         expect(testDiscoverProject.tsconfigPath).toBe(path.join(fixtureRoot, "tsconfig.json"));
         expect(testDiscoverProject.rootDir).toBe(fixtureRoot);
