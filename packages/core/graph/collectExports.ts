@@ -6,12 +6,12 @@ export function collectExports(files: SourceFile[]): SymbolNode[] {
     const nodes: SymbolNode[] = [];
     files.forEach(file => {
         file.getExportedDeclarations().forEach((declerations, name) => {
-            declerations.forEach(decleration => {
+            declerations.forEach(declaration => {
                 nodes.push({
                     name,
                     filePath: file.getFilePath(),
-                    line: decleration.getStartLineNumber(),
-                    kind: getKind(decleration),
+                    line: declaration.getStartLineNumber(),
+                    kind: getKind(declaration),
                 })
             })
         })
