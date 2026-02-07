@@ -1,6 +1,7 @@
 ﻿import { discoverProject } from "./project/discoverProject";
 import { enumerateFiles } from "./project/enumerateFiles";
 import {buildGraph} from "./graph/buildGraph";
+import {analyzeUnreferencedExports} from "./analyzers/unreferencedExports";
 
 export type ScanResult = {
   path: string;
@@ -20,6 +21,7 @@ export function scan(path: string): ScanResult {
   const discovered = discoverProject(path);
   const files = enumerateFiles(discovered.project);
   const graph = buildGraph(files.sourceFiles);
+  const findings = analyzeUnreferencedExports(graph);
 
   return {
     path,
