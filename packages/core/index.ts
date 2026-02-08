@@ -1,8 +1,9 @@
 ﻿import { discoverProject } from "./project/discoverProject";
 import { enumerateFiles } from "./project/enumerateFiles";
-import {buildGraph} from "./graph/buildGraph";
-import {analyzeUnreferencedExports} from "./analyzers/unreferencedExports";
-import {scoreFindings} from "./scoring/scoreFindings";
+import { buildGraph } from "./graph/buildGraph";
+import { analyzeUnreferencedExports } from "./analyzers/unreferencedExports";
+import { scoreFindings } from "./scoring/scoreFindings";
+export { formatPretty, formatJSON } from "./reporting/formatFIndings";
 
 export type ScanResult = {
   path: string;

@@ -1,4 +1,5 @@
 ﻿import { scan } from "@deadcode-radar/core";
+import { formatJSON, formatPretty } from "@deadcode-radar/core";
 
 type CliArgs = {
     command: string;
@@ -51,8 +52,7 @@ if (args.command != "scan"){
 const result = scan(args.path);
 
 if (args.format === "json"){
-  console.log(JSON.stringify(result, null, 2));
+  console.log(formatJSON(result));
 } else {
-  console.log(`Scanning: ${result.path}`)
-  console.log(`Findings: ${result.findings.length}`)
+  console.log(formatPretty(result));
 }
