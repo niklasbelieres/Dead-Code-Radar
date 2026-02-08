@@ -21,6 +21,7 @@ function parseArgs(argv: string[]): CliArgs {
       if (arg == "--format") {
         const value = rest[i + 1];
         if (value === "json") format = "json";
+        else if(value === "pretty") format = "pretty";
         i++;
       }
 

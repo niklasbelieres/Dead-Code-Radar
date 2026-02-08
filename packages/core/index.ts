@@ -9,6 +9,8 @@ export type ScanResult = {
   path: string;
   findings: Array<{
     filePath: string;
+    name: string;
+    kind: string;
     type: string;
     message: string;
     confidence: number;
