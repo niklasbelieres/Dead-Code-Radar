@@ -2,10 +2,12 @@
 import { enumerateFiles } from "./project/enumerateFiles";
 import {buildGraph} from "./graph/buildGraph";
 import {analyzeUnreferencedExports} from "./analyzers/unreferencedExports";
+import {scoreFindings} from "./scoring/scoreFindings";
 
 export type ScanResult = {
   path: string;
   findings: Array<{
+    filePath: string;
     type: string;
     message: string;
     confidence: number;
@@ -22,10 +24,11 @@ export function scan(path: string): ScanResult {
   const files = enumerateFiles(discovered.project);
   const graph = buildGraph(files.sourceFiles);
   const findings = analyzeUnreferencedExports(graph);
+  const scored = scoreFindings(findings);
 
   return {
     path,
-    findings: [],
+    findings: scored,
     stats: {
       totalFiles: files.sourceFiles.length,
       tsconfigPath: discovered.tsconfigPath

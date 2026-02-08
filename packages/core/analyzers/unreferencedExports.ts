@@ -9,6 +9,7 @@ export function analyzeUnreferencedExports(graph: ProjectGraph) {
         const refs = graph.references.get(node);
         if(!refs || refs.length === 0) {
                 findings.push({
+                    filePath: node.filePath,
                     type: "unreferenced-export",
                     message: `Export ${node.name} (${node.kind}) in ${node.filePath} is never referenced.`,
                     confidence: 100,
